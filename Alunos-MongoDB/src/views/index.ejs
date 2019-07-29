@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Alunos</title>
+</head>
+
+<body>
+    <h1>Lista de Alunos</h1>
+    <ul id="alunos">
+        <ol></ol>
+    </ul>
+
+    <div>
+        <h3>Cadastrar Aluno</h3>
+        <form action="/api/v1/alunos" method="POST">
+            <input type="text" placeholder="Nome do Aluno" name="nome">
+            <input type="number" placeholder="Idade" name="idade">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script>
+        axios.get('http://localhost:3333/api/v1/alunos')
+            .then(response => createList(response.data))
+            .catch(error => console.log(response));
+
+        const createList = (alunos) => {
+            const ulAlunos = document.getElementById('alunos');
+            alunos.map(aluno => {
+                const listaAluno = document.createElement('li');
+                listaAluno.innerHTML = 'Nome: ' + aluno.nome + ' e Idade: ' + aluno.idade;
+                ulAlunos.appendChild(listaAluno);
+            });
+        }
+    </script>
+</body>
+
+</html>
