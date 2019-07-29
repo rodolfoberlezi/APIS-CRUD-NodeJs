@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet/less" type="text/css" href="../static/css/template.less">
+    <title>Autor Rodolfo Berlezi</title>
+</head>
+
+<body>
+    <header>
+        <div class="content">
+            <div class="container">
+                <div class="left-side">
+                    <img class="logo" src="../static/img/doge.jpg" alt="Doge Dog">
+                    <h1 class="title">Rodolfo Berlezi</h1>
+                </div>
+                <nav>
+                    <ul class="menu">
+                        <a href="{{url_for('index')}}">
+                            <li class="menu-item">
+                                <span class="menu-item-info">Início</span>
+                            </li>
+                        </a>
+                        <a href="{{url_for('card')}}">
+                            <li class="menu-item">
+                                <span class="menu-item-info">Cartão</span>
+                            </li>
+                        </a>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class=" container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+    <script src="../libs/jquery.js"></script>
+</body>
+
+</html>
